@@ -18,7 +18,7 @@ def main():
     cascade_path = "/mnt/c/opencv/build/etc/haarcascades/haarcascade_frontalface_default.xml"
 
     # Face detection
-    img = cv2.imread("kao.jpg")
+    img = cv2.imread("kao.png")
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cascade = cv2.CascadeClassifier(cascade_path)
     facedetect = cascade.detectMultiScale(gray_img, scaleFactor=1.1, minNeighbors=2, minSize=(30, 30))
@@ -27,7 +27,7 @@ def main():
         for x, y, w, h in facedetect:
             mosaic_img = mosaic_area(img, x, y, w, h)
     
-    cv2.imwrite("mosaic_kao.jpg", mosaic_img)
+    cv2.imwrite("mosaic_kao.png", mosaic_img)
 
 
 if __name__=='__main__':
